@@ -1,0 +1,158 @@
+import java.util.Scanner;
+
+public class PetSimulatorGame {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+       // Skill set 1
+       int happiness = 10;
+       int hunger = 10;
+       int energy = 10;
+       int charisma = 10;
+       
+       // Skill set 2
+       int dexterity = 10;
+       int social = 10;
+       int fun = 10;
+       int skill = 10;
+
+       
+       // Intro for a user, welcoming text
+       System.out.println("Welcome to a Pet Simulator game!");
+       System.out.println("In this game you choose a pet and play with it! For starting, let's choose a pet:");
+       System.out.println("We have cats and dogs.");
+       System.out.println("What do you prefer?(cat for a cat, dog for a dog) ");
+       String pet = input.nextLine();
+
+       // If it's a dog, choose one of three dogs
+       if(pet.equals("dog")){
+           System.out.println("There are 3 dogs which you might like: ");
+           System.out.println("1. Fasser");
+           System.out.println("2. Rondy");
+           System.out.println("3. Jackie");
+           System.out.print("Enter a dog number: ");
+           int pet_num = input.nextInt();
+           input.nextLine();
+           if(pet_num == 1){
+               //show the ascii art of a Fasser
+               System.out.println("You picked a Fasser! Here he is-");
+               System.out.println("             .--~~,__");
+               System.out.println(":-....,-------`~~'._.'");
+               System.out.println(" `-,,,  ,_      ;'~U'");
+               System.out.println("  _,-' ,'`-__; '--.");
+               System.out.println(" (_/'~~      ''''(;");
+           }
+            else if(pet_num == 2){
+               //show the ascii art of a Rondy
+               System.out.println("You picked a Rondy! Here she is-");
+               System.out.println("         .-'-.");
+               System.out.println("        /|6 6|\"");
+               System.out.println("       { (_0_) }");
+               System.out.println("       _// ^ \\_");
+               System.out.println("      (// //^\\ \\ )-'");
+               System.out.println("         **   ** ");
+           }
+            else if(pet_num == 3){
+               //show the ascii art of a Jackie
+               System.out.println("You picked a Jackie! Here he is-");
+               System.out.println("   /|/|");
+               System.out.println("  ..    )       .");
+               System.out.println("o--     ))    / @)");
+               System.out.println(" v__///\\\\__/ @");
+               System.out.println("   {           }");
+               System.out.println("    {  } \\{  }");
+               System.out.println("    <_|      <_|");
+           }
+           else{
+               System.out.println("You should choose from 1 to 3, look, they're getting sad that you don't want any of them >_<");
+           }
+       }
+
+       // If it's a cat, choose one of three cats
+        else if(pet.equals("cat")){
+           System.out.println("There are 3 cats which you might like: ");
+           System.out.println("1. Mila");
+           System.out.println("2. Rowanda");
+           System.out.println("3. Sebastian");
+           System.out.print("Enter a cat number: ");
+           int pet_num = input.nextInt();
+           if(pet_num == 1){
+               //show the ascii art of a Mila
+               System.out.println("You picked a Mila! Here she is-");
+               System.out.println(" /|__/,|   (`|");
+               System.out.println(" |_ _  |.--.) )");
+               System.out.println(" ( T   )     /");
+               System.out.println("(((^_(((/(((_/");
+           }
+            else if(pet_num == 2){
+               //show the ascii art of a Rowanda
+               System.out.println("You picked a Rowanda! Here she is-");
+               System.out.println("                   _ |\\ _");
+               System.out.println("                   \\ ` ..\\'");
+               System.out.println("              __,.-' =__Y=");
+               System.out.println("             .*          *");
+               System.out.println("      _    /   ,    \\/\\_");
+               System.out.println("     ((____|    )_-\\ \\_-`");
+               System.out.println("     `-----'`-----` `--`");
+           }
+            else if(pet_num == 3){
+               //show the ascii art of a Sebastian
+               System.out.println("You picked a Sebastian! Here he is-");
+               System.out.println("    /\\_____/\\'");
+               System.out.println("   /  o   o  \'");
+               System.out.println("  ( ==  ^  == )");
+               System.out.println("   )         (");
+               System.out.println("  (           )");
+               System.out.println(" ( (  )   (  ) )");
+               System.out.println("(__(__)___(__)__)");
+           }
+           else{
+               System.out.println("You should choose from 1 to 3, look, they're getting sad that you don't want any of them >_<");
+           }
+       }
+       else{
+           System.out.println("I'm sorry we only have cats and dogs =(");
+       }
+
+
+       // Let's play with it, after playing pet's hunger and energy go down by 2, social goes down by 1
+       while(energy > 1 ){
+       System.out.println("Do you wanna play with your pet? Press p to play or r to rest: ");
+       String activity = input.nextLine();
+       if(activity.equals("r")){
+           System.out.println("Let's take a rest then!");
+           break;
+       }
+       else{
+       hunger -= 2;
+       energy -= 2;
+       social -= 1;
+       System.out.println("Wow, you're pet had so much fun that it's hunger went down by " + hunger + ", energy level also dropped from 10 to " + energy);
+       System.out.println(" It's social skills are " + social + "/10 now");}
+       }
+
+
+       while(energy > 0){
+          System.out.println("To recharge your pet's mood and fill it's tummy, enter e to eat: ");
+          String eat = input.nextLine();
+          if(eat.equals("e")){
+           System.out.println("Nyam nyam nyam");
+           System.out.print("");
+           System.out.println("NyamnyamnyamNyamnyamnyamNyamnyamnyamNyamnyamnyam");
+           energy --;
+           hunger += 2;
+           System.out.print("");
+           System.out.println("Hah, it ate well (^3^), it's hunger is " + hunger + " now, and it's energy became " + energy);}
+           System.out.println("Wanna stop eating? Enter stop ");
+           String stop = input.nextLine();
+           if(stop.equals("stop")){
+               break;}
+       }
+
+      System.out.println("");
+      System.out.println("I hope you had fun with your pet, right now it's time to put it to sleep.");
+      System.out.println("See you next time, you can return any time you want, our pets will wait for you!");
+
+
+      input.close();
+    }
+}
